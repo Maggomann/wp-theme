@@ -37,7 +37,9 @@ get_header();
 				<div class="portfolio-detail-description">
 					<div class="qua-separator-small" id=""></div>
 					<?php the_post(); ?>
-					<p><?php the_content(); ?></p>	
+					<p>
+                        <?php the_content(); ?>
+                    </p>
 				</div>
 				<div class="portfolio-detail-info">					
 					<?php if(get_post_meta( get_the_ID(),'portfolio_client_project_title', true )) {  ?>

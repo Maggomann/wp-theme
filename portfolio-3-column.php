@@ -113,8 +113,7 @@ get_header(); ?>
 								<h4><?php the_title();?></h4>
 									<p><?php the_excerpt();?></p>
 									<div class="portfolio-icon">
-										<a  <?php  if(get_post_meta( get_the_ID(),'meta_project_target', true )) { echo "target='_blank'"; }  ?> class="hover_thumb" title="<?php the_title(); ?>" data-lightbox="image" href="<?php echo $post_thumbnail_url; ?>" ><i class="fa fa-picture-o"></i></a>
-										<a <?php  if(get_post_meta( get_the_ID(),'meta_project_target', true )) { echo "target='_blank'"; }  ?> href="<?php echo $meta_project_link; ?>"><i class="fa fa-link"></i></a>
+										<a  <?php  if(get_post_meta( get_the_ID(),'meta_project_target', true )) { echo "target='_blank'"; }  ?> class="hover_thumb" title="<?php the_title(); ?><br><br><small><?php echo get_post_meta( get_the_ID(),'portfolio_project_summary2', true ); ?>" data-lightbox="image" href="<?php echo $post_thumbnail_url; ?>" ><i class="fa fa-picture-o"></i></a>
 									</div>									
 								</div>
 							</div>

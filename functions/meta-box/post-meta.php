@@ -89,7 +89,7 @@ function wallstreet_init()
 		$meta_service_target =sanitize_text_field( get_post_meta( get_the_ID(), 'meta_service_target', true ));
 		$service_description_text =sanitize_text_field( get_post_meta( get_the_ID(), 'service_description_text', true ));
 		$service_readmore_text =sanitize_text_field( get_post_meta( get_the_ID(), 'service_readmore_text', true ));
-	?>	
+	?>
 		<p><h4 class="heading"><?php _e('Icon','wallstreet'); echo " (Using font awesome icons name) like: fa-rub.";?> <label style="margin-left:10px;"><a target="_blank" href="http://fontawesome.io/icons/"> <?php _e('Get your Font Awesome icons.','wallstreet') ;?></a></label></h4>
 		<p><input type="checkbox" id="service_icon_target" name="service_icon_target" <?php if($service_icon_target) echo "checked"; ?> ><?php _e('To enable service icon check mark the checkbox','wallstreet'); ?></p>
 		<p><input class="inputwidth"  name="service_icon_image" id="service_icon_image" style="width: 480px" placeholder="<?php _e('Icon','wallstreet'); ?>" type="text" value="<?php if (!empty($service_icon_image)) echo esc_attr($service_icon_image);?>"> </input></p>
@@ -107,6 +107,7 @@ function wallstreet_init()
 	{	global $post ;		
 		$meta_project_target =sanitize_text_field( get_post_meta( get_the_ID(), 'meta_project_target', true ));
 		$portfolio_project_summary =sanitize_text_field( get_post_meta( get_the_ID(), 'portfolio_project_summary', true ));
+        $portfolio_project_summary2 =sanitize_text_field( get_post_meta( get_the_ID(), 'portfolio_project_summary2', true ));
 		$meta_project_link =sanitize_text_field( get_post_meta( get_the_ID(), 'meta_project_link', true ));
 		
 	?>
@@ -114,7 +115,9 @@ function wallstreet_init()
 	<p><input class="inputwidth"  name="meta_project_link" id="meta_project_link" style="width: 480px" placeholder="<?php _e('Link','wallstreet'); ?>" type="text" value="<?php if (!empty($meta_project_link)) echo esc_attr($meta_project_link);?>"> </input></p>	
 	<p><input type="checkbox" id="meta_project_target" name="meta_project_target" <?php if($meta_project_target) echo "checked"; ?> ><?php _e('Open link in new tab','wallstreet'); ?></p>
 	<p><h4 class="heading"><?php _e('Page Info','wallstreet');?></h4>
-	<p><input class="inputwidth"  name="portfolio_project_summary" id="portfolio_project_summary" style="width: 480px" placeholder="<?php _e('Page Info','wallstreet');?>" type="text" value="<?php if (!empty($portfolio_project_summary)) echo esc_attr($portfolio_project_summary);?>"> </input></p>	
+	<p><input class="inputwidth"  name="portfolio_project_summary" id="portfolio_project_summary" style="width: 480px" placeholder="<?php _e('Page Info','wallstreet');?>" type="text" value="<?php if (!empty($portfolio_project_summary)) echo esc_attr($portfolio_project_summary);?>"> </input></p>
+    <p><h4 class="heading">Bildbeschreibung</h4>
+    <p><textarea name="portfolio_project_summary2" id="portfolio_project_summary2" style="width: 550px; height: 100px; padding: 0px;" placeholder="Bildbeschreibung"  rows="3" cols="10" ><?php if (!empty($portfolio_project_summary2)){ echo esc_textarea( $portfolio_project_summary2 ); } ?></textarea></p>
 	
 <?php }
 	function wallstreet_meta_portfolio_details()
@@ -141,7 +144,7 @@ function wallstreet_init()
 //Meta boxes for testimonials*/
 	function wallstreet_meta_testimonial()
 	{	global $post ;
-		$testimonial_description_text=sanitize_text_field( get_post_meta( get_the_ID(), 'testimonial_description_text', true ));	
+		$testimonial_description_text=sanitize_text_field( get_post_meta( get_the_ID(), 'testimonial_description_text', true ));
 		?>	
 		<p><label><?php _e('Description','wallstreet');?></label>	</p>
 		<p><textarea name="testimonial_description_text" id="testimonial_description_text" style="width: 550px; height: 100px; padding: 0px;" placeholder="<?php _e('Description','wallstreet');?>"  rows="3" cols="10" ><?php if (!empty($testimonial_description_text)){ echo esc_textarea( $testimonial_description_text ); } ?></textarea></p>
@@ -250,6 +253,7 @@ function wallstreet_meta_save($post_id)
 			update_post_meta($post_ID, 'portfolio_project_visit_site', sanitize_text_field($_POST['portfolio_project_visit_site']));
 			update_post_meta($post_ID, 'portfolio_project_button_text', sanitize_text_field($_POST['portfolio_project_button_text']));
 			update_post_meta($post_ID, 'portfolio_project_summary', sanitize_text_field($_POST['portfolio_project_summary']));
+            update_post_meta($post_ID, 'portfolio_project_summary2', sanitize_text_field($_POST['portfolio_project_summary2']));
 			update_post_meta($post_ID, 'meta_button_target', sanitize_text_field($_POST['meta_button_target']));
 			update_post_meta($post_ID, 'meta_button_link', sanitize_text_field($_POST['meta_button_link']));
 			 
